@@ -18,7 +18,12 @@ class Database:
         
     def insert(self, movie):
         print(f"[Database] Inserting movie with title {movie.title}")
-        return self.collections.insert_one({"title": movie.title})
+        return self.collections.insert_one({
+            "title": movie.title,
+            "directors": movie.directors,
+            "genres": movie.genres,
+            "cast": movie.cast,
+        })
 
     def findByGenres(self, values):
         print("[Database] Filtering categories with values: ", values)
@@ -28,5 +33,5 @@ class Database:
         print("[Database] Filtering autores with values print: ", values)
         return self.collections.find({"cast": {"$in": list(values)}})
         
-    # def delete(self, movieId): 
-        # self.collections.delete_one({"_id":movieId})
+    def delete(self, movie): 
+        self.collections.delete_one({"_id": movie.id})

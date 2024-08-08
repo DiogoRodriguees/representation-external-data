@@ -31,8 +31,10 @@ func FindByCategoria() *interfaces.Request {
 
 func CreateMovie() *interfaces.Movie {
 	return &interfaces.Movie{
-		Title:  "O Poderoso Chefão",
-		Genres: []string{"Ação", "Comédia"},
+		Title:     "O Poderoso Chefão",
+		Genres:    []string{"Ação", "Comédia"},
+		Cast:      []string{"Diogo", "Gustavo", "Christofer"},
+		Directors: []string{"Diogo", "Gustavo", "Christofer"},
 	}
 }
 

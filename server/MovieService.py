@@ -9,8 +9,17 @@ class MovieService:
     
     def create(self, movie):
         print("[Movie Service] Executing method create()")
-        movie_created = self.database.insert(movie)
+        m = Movie()
+        m.title = movie.title
+        m.directors.extend(list(movie.directors))
+        m.genres.extend(list(movie.genres))
+        m.cast.extend(list(movie.cast))
 
+        movie_created = self.database.insert(m)
+        movie = Movie()
+        movie.id = movie_created.inserted_id
+        return movie
+        
     def findByCategories(self, values):
         print("[Movie Service] Executing method findByCategories()")
         movies = self.database.findByGenres(values)
