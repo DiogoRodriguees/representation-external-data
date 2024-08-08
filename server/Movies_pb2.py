@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cMovies.proto\"}\n\x05Movie\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06genres\x18\x03 \x03(\t\x12\x0c\n\x04plot\x18\x04 \x01(\t\x12\x1a\n\x12num_mflix_comments\x18\x05 \x01(\x05\x12\x0c\n\x04type\x18\x06 \x01(\t\x12\x11\n\tdirectors\x18\x07 \x03(\t\"\x1e\n\x0cMovieFilters\x12\x0e\n\x06values\x18\x01 \x03(\t\"Z\n\x08Response\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x15\n\x05movie\x18\x03 \x01(\x0b\x32\x06.Movie\x12\x16\n\x06movies\x18\x04 \x03(\x0b\x32\x06.Movie\"P\n\x07Request\x12\x0e\n\x06method\x18\x01 \x01(\t\x12\x15\n\x05movie\x18\x02 \x01(\x0b\x32\x06.Movie\x12\x1e\n\x07\x66ilters\x18\x03 \x01(\x0b\x32\r.MovieFiltersB\x0eZ\x0c./interfacesb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cMovies.proto\"\x86\x02\n\x05Movie\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04plot\x18\x02 \x01(\t\x12\x0e\n\x06genres\x18\x03 \x03(\t\x12\x0f\n\x07runtime\x18\x04 \x01(\x05\x12\x0c\n\x04\x63\x61st\x18\x05 \x03(\t\x12\x1a\n\x12num_mflix_comments\x18\x06 \x01(\x05\x12\r\n\x05title\x18\x07 \x01(\t\x12\x10\n\x08\x66ullplot\x18\x08 \x01(\t\x12\x11\n\tlanguages\x18\t \x03(\t\x12\x11\n\tdirectors\x18\n \x03(\t\x12\r\n\x05rated\x18\x0b \x01(\t\x12\x13\n\x0blastupdated\x18\x0c \x01(\t\x12\x0c\n\x04year\x18\r \x01(\x03\x12\x11\n\tcountries\x18\x0e \x03(\t\x12\x0c\n\x04type\x18\x0f \x01(\t\"\x1e\n\x0cMovieFilters\x12\x0e\n\x06values\x18\x01 \x03(\t\"Z\n\x08Response\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x15\n\x05movie\x18\x03 \x01(\x0b\x32\x06.Movie\x12\x16\n\x06movies\x18\x04 \x03(\x0b\x32\x06.Movie\"P\n\x07Request\x12\x0e\n\x06method\x18\x01 \x01(\t\x12\x15\n\x05movie\x18\x02 \x01(\x0b\x32\x06.Movie\x12\x1e\n\x07\x66ilters\x18\x03 \x01(\x0b\x32\r.MovieFiltersB\x0eZ\x0c./interfacesb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -21,12 +21,12 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'Movies_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\014./interfaces'
-  _globals['_MOVIE']._serialized_start=16
-  _globals['_MOVIE']._serialized_end=141
-  _globals['_MOVIEFILTERS']._serialized_start=143
-  _globals['_MOVIEFILTERS']._serialized_end=173
-  _globals['_RESPONSE']._serialized_start=175
-  _globals['_RESPONSE']._serialized_end=265
-  _globals['_REQUEST']._serialized_start=267
-  _globals['_REQUEST']._serialized_end=347
+  _globals['_MOVIE']._serialized_start=17
+  _globals['_MOVIE']._serialized_end=279
+  _globals['_MOVIEFILTERS']._serialized_start=281
+  _globals['_MOVIEFILTERS']._serialized_end=311
+  _globals['_RESPONSE']._serialized_start=313
+  _globals['_RESPONSE']._serialized_end=403
+  _globals['_REQUEST']._serialized_start=405
+  _globals['_REQUEST']._serialized_end=485
 # @@protoc_insertion_point(module_scope)

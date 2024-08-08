@@ -4,12 +4,22 @@ option go_package = "./interfaces";
 
 message Movie {
     string id = 1;
-    string title = 2;
+    string plot = 2;
     repeated string genres = 3;
-    string plot = 4;
-    int32 num_mflix_comments = 5;
-    string type = 6;
-    repeated string directors = 7;
+    int32 runtime = 4;
+    repeated string cast = 5; 
+    int32 num_mflix_comments = 6;
+    string title = 7;
+    string fullplot = 8;
+    repeated string languages = 9;
+    // todo: field realeased use timestamp: 1909-12-13T00:00:00.000+00:00
+    repeated string directors = 10;
+    string rated = 11;
+    string lastupdated = 12; // formmat: 2015-08-13 00:46:30.660000000
+    int64 year = 13;
+    repeated string countries = 14;
+    string type = 15;
+
 }
 
 message MovieFilters {
