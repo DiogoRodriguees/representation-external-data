@@ -14,13 +14,26 @@ class MovieService:
     def findByCategories(self, values):
         print("[Movie Service] Executing method findByCategories()")
         movies = self.database.findByGenres(values)
-
+        
         movies_list = []
         for movie in movies:
             new_movie = Movie()
+            new_movie.id = str(movie["_id"])
+            new_movie.plot = movie["plot"]
+            new_movie.genres.extend(list(movie["genres"]))
+            new_movie.runtime = movie["runtime"]
+            new_movie.cast.extend(list(movie["cast"]))
+            new_movie.num_mflix_comments = movie["num_mflix_comments"]
             new_movie.title = movie["title"]
+            new_movie.fullplot = movie["fullplot"]
+            new_movie.languages.extend(list(movie["languages"]))
+            new_movie.directors.extend(list(movie["directors"]))
+            new_movie.rated = movie["rated"]
+            new_movie.lastupdated = movie["lastupdated"]
+            new_movie.year = movie["year"]
+            new_movie.countries.extend(list(movie["countries"]))
+            new_movie.type = movie["type"]
             movies_list.append(new_movie)
-
         return movies_list
         
     def findByAtor(self, values):
@@ -30,12 +43,21 @@ class MovieService:
         movies_list = []
         for movie in movies:
             new_movie = Movie()
-            print(movie["_id"])
-            print(movie["plot"])
-            print(movie["type"])
-            print(movie)
-            new_movie.title = movie["title"]
+            new_movie.id = str(movie["_id"])
             new_movie.plot = movie["plot"]
+            new_movie.genres.extend(list(movie["genres"]))
+            new_movie.runtime = movie["runtime"]
+            new_movie.cast.extend(list(movie["cast"]))
+            new_movie.num_mflix_comments = movie["num_mflix_comments"]
+            new_movie.title = movie["title"]
+            new_movie.fullplot = movie["fullplot"]
+            new_movie.languages.extend(list(movie["languages"]))
+            new_movie.directors.extend(list(movie["directors"]))
+            new_movie.rated = movie["rated"]
+            new_movie.lastupdated = movie["lastupdated"]
+            new_movie.year = movie["year"]
+            new_movie.countries.extend(list(movie["countries"]))
+            new_movie.type = movie["type"]
             movies_list.append(new_movie)
 
         return movies_list
