@@ -17,5 +17,7 @@ gin-bin
 go.work
 go.work.sum
 *.db
-.env
+.en
+
+# aditional files
 protoc*
