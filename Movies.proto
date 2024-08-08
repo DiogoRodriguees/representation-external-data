@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "./interfaces";
+
+message Movie {
+    string id = 1;
+    string title = 2;
+    repeated string genres = 3;
+    string plot = 4;
+    int32 num_mflix_comments = 5;
+    string type = 6;
+    repeated string directors = 7;
+}
+
+message MovieFilters {
+    repeated string values = 1;
+}
+
+message Response {
+    int32 status = 1;
+    string message = 2;
+    Movie movie = 3;
+    repeated Movie movies = 4;
+}
+
+message Request {
+    string method = 1;
+    Movie movie = 2;
+    MovieFilters filters = 3;
+}
