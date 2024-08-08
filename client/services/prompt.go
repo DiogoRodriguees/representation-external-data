@@ -2,6 +2,7 @@ package services
 
 import (
 	"fmt"
+	"log"
 	"protobuffer/interfaces"
 )
 
@@ -21,15 +22,15 @@ func Prompt() int {
 
 func ExecuteOptionSelected(option int) *interfaces.Request {
 	if option == 1 {
-		fmt.Println("[Movie] Creating movie")
+		log.Println("[Movie] Creating movie")
 		return Create(CreateMovie(), CreateFilter())
 	}
 	if option == 2 {
-		fmt.Println("[Movie] Finding by ator")
+		log.Println("[Movie] Finding by ator")
 		return FindByAtor()
 	}
 	if option == 3 {
-		fmt.Println("[Movie] Finding by categoria")
+		log.Println("[Movie] Finding by categoria")
 		return FindByCategoria()
 	}
 	return FindByAtor()
