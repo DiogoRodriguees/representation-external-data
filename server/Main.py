@@ -1,12 +1,10 @@
-import json
 import socket
 import struct
 
-from Movies_pb2 import Movie, Request, Response
+from Movies_pb2 import Request
 from Database import Database
 from MovieService import MovieService
 from MovieController import MovieController
-from bson.json_util import dumps
 
 class Server:
     def __init__(self):
@@ -25,6 +23,8 @@ class Server:
             return self.movieController.findByCategories(request)
         if request.method == "DELETE":
             return self.movieController.delete(request)
+        if request.method == "UPDATE":
+            return self.movieController.update(request)
         
     def handle_client(self, client_socket):
         try:
@@ -77,12 +77,6 @@ class Server:
             client_socket.close()
             if self.server_socket:
                 self.server_socket.close()
-
-    def sigint_handler(self, signal, frame):
-        print("\nCtrl+C pressionado. Fechando o servidor...")
-        if self.server_socket:
-            self.server_socket.close()
-        sys.exit(0)
 
 server = Server()
 server.run()

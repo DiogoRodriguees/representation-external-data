@@ -50,7 +50,7 @@ func executeCreate() *interfaces.Request {
 }
 
 func executeUpdate() *interfaces.Request {
-	request := Create(CreateMovie(), CreateFilter())
+	request := Update(CreateMovie(), CreateFilter())
 
 	movie := &interfaces.Movie{}
 	fmt.Println("Insert movie id: ")
@@ -79,11 +79,9 @@ func executeUpdate() *interfaces.Request {
 }
 
 func executeDelete() *interfaces.Request {
-	request := Create(CreateMovie(), CreateFilter())
-
-	movie := &interfaces.Movie{}
+	request := Delete(CreateMovie(), CreateFilter())
 	fmt.Println("Insert movie id: ")
-	fmt.Scan(&movie.Id)
+	fmt.Scan(&request.Movie.Id)
 	return request
 }
 

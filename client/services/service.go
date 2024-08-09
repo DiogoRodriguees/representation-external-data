@@ -10,6 +10,22 @@ func Create(movie *interfaces.Movie, filters *interfaces.MovieFilters) *interfac
 	}
 }
 
+func Update(movie *interfaces.Movie, filters *interfaces.MovieFilters) *interfaces.Request {
+	return &interfaces.Request{
+		Method:  "UPDATE",
+		Movie:   movie,
+		Filters: filters,
+	}
+}
+
+func Delete(movie *interfaces.Movie, filters *interfaces.MovieFilters) *interfaces.Request {
+	return &interfaces.Request{
+		Method:  "DELETE",
+		Movie:   movie,
+		Filters: filters,
+	}
+}
+
 func FindByAtor() *interfaces.Request {
 	return &interfaces.Request{
 		Method: "FIND_BY_ATOR",

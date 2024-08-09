@@ -16,7 +16,7 @@ class MovieController:
     def update(self, request):
         try:
             print("[Movie Controller] Executing method update()")
-            movie = self.movieService.update(request.movie)
+            movie_updated = self.movieService.update(request.movie)
             return Response(status=200, message="Successfully on update movie")
         except Exception as e:
             print(f"[Error] Failed on update movie: {e}")

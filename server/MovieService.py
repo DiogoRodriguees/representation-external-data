@@ -1,7 +1,4 @@
-from Database import Database
-from Movies_pb2 import Response, Movie
-from bson.json_util import dumps
-import logging
+from Movies_pb2 import Movie
 
 class MovieService:
     def __init__(self, database):
@@ -22,9 +19,7 @@ class MovieService:
     
     def update(self, movie):
         print("[Movie Service] Executing method update()")
-        self.database.update(movie)
-        return Movie()
-
+        return self.database.update(movie)
         
     def findByCategories(self, values):
         print("[Movie Service] Executing method findByCategories()")
@@ -79,5 +74,4 @@ class MovieService:
     
     def delete(self, movie):
         print("[Movie Service] Executing method delete()")
-        self.database.delete(movie)
-        return Movie()
+        return self.database.delete(movie)
