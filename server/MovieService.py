@@ -9,16 +9,22 @@ class MovieService:
     
     def create(self, movie):
         print("[Movie Service] Executing method create()")
-        m = Movie()
-        m.title = movie.title
-        m.directors.extend(list(movie.directors))
-        m.genres.extend(list(movie.genres))
-        m.cast.extend(list(movie.cast))
+        new_movie = Movie()
+        new_movie.title = movie.title
+        new_movie.directors.extend(list(movie.directors))
+        new_movie.genres.extend(list(movie.genres))
+        new_movie.cast.extend(list(movie.cast))
 
-        movie_created = self.database.insert(m)
-        movie = Movie()
-        movie.id = movie_created.inserted_id
-        return movie
+        movie_created = self.database.insert(new_movie)
+        movie_response = Movie()
+        movie_response.id = movie_created.inserted_id
+        return movie_response
+    
+    def update(self, movie):
+        print("[Movie Service] Executing method update()")
+        self.database.update(movie)
+        return Movie()
+
         
     def findByCategories(self, values):
         print("[Movie Service] Executing method findByCategories()")
@@ -70,3 +76,8 @@ class MovieService:
             movies_list.append(new_movie)
 
         return movies_list
+    
+    def delete(self, movie):
+        print("[Movie Service] Executing method delete()")
+        self.database.delete(movie)
+        return Movie()

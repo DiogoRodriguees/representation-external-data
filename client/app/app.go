@@ -25,7 +25,6 @@ func Run() {
 }
 
 func start(conn net.Conn) {
-
 	for {
 		// Read option selected by user
 		option := services.Prompt()

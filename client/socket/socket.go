@@ -61,7 +61,11 @@ func ReadResponse(conn net.Conn) error {
 		fmt.Println("Erro ao deserializar resposta:", err)
 		return err
 	}
+	showResponse(response)
+	return nil
+}
 
+func showResponse(response *interfaces.Response) {
 	fmt.Println("\n-----------------------------------------------")
 	fmt.Println("*                  Response                   *")
 	fmt.Println("-----------------------------------------------")
@@ -69,9 +73,10 @@ func ReadResponse(conn net.Conn) error {
 	fmt.Println("Mensagem:", response.Message)
 	fmt.Println("Filmes: ")
 	for _, movie := range response.Movies {
-		fmt.Println("* ", movie.Title)
+		fmt.Println("* ", movie)
+	}
+	if response.Movie != nil {
+		fmt.Println(response.Movie)
 	}
 	fmt.Println("-----------------------------------------------")
-
-	return nil
 }
