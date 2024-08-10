@@ -3,17 +3,16 @@ package app
 import (
 	"log"
 	"net"
-	"protobuffer/config"
 	"protobuffer/logger"
-	"protobuffer/messages"
-	"protobuffer/services"
+	"protobuffer/logger/messages"
+	"protobuffer/movie"
 	"protobuffer/socket"
 )
 
 func Run() {
 	log.Println(messages.StartingClient)
 
-	conn, err := net.Dial(config.Socket.Type, config.Socket.Host)
+	conn, err := net.Dial(socket.Config.Type, socket.Config.Host)
 	if err != nil {
 		logger.Error(messages.FailedOnStartSocket, err)
 	}
@@ -27,13 +26,14 @@ func Run() {
 func start(conn net.Conn) {
 	for {
 		// Read option selected by user
-		option := services.Prompt()
+		option := movie.ShowMenu()
 		if option == 4 {
 			break
 		}
 
-		// Executeing option method
-		request := services.ExecuteOptionSelected(option)
+		movieManager := movie.Init()
+		createRequest := movieManager.Option[option]
+		request := createRequest()
 
 		// Writing message
 		err := socket.WriteMessage(conn, request)

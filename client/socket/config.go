@@ -1,11 +1,11 @@
-package config
+package socket
 
-type SocketType struct {
+type SocketConfig struct {
 	Type string
 	Host string
 }
 
-var Socket = &SocketType{
+var Config = &SocketConfig{
 	Type: "tcp",
 	Host: "localhost:8080",
 }
