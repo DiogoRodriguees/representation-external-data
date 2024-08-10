@@ -9,12 +9,12 @@ type MovieManager struct {
 }
 
 func Init() *MovieManager {
-	movie := &MovieManager{}
-	movie.Option[1] = ExecuteCreate
-	movie.Option[2] = ExecuteFindByActor
-	movie.Option[3] = ExecuteFindByCategorie
-	movie.Option[5] = ExecuteUpdate
-	movie.Option[6] = ExecuteDelete
+	options := make(map[int]func() *interfaces.Request)
+	options[1] = ExecuteCreate
+	options[2] = ExecuteFindByActor
+	options[3] = ExecuteFindByCategorie
+	options[5] = ExecuteUpdate
+	options[6] = ExecuteDelete
 
-	return movie
+	return &MovieManager{Option: options}
 }

@@ -101,10 +101,11 @@ func ExecuteDelete() *interfaces.Request {
 }
 
 func ExecuteFindByActor() *interfaces.Request {
-	request := &interfaces.Request{}
+	m := &Movie{}
+	request := m.FindByAtor()
 
 	var actors string
-	fmt.Println("Insert movie cast separeteds per , (ex: diogo,gustavo,christofer): ")
+	fmt.Println("Insert movie cast separeteds per comma (ex: diogo,gustavo,christofer): ")
 	fmt.Scan(&actors)
 
 	request.Filters.Values = strings.Split(actors, ",")
@@ -112,10 +113,11 @@ func ExecuteFindByActor() *interfaces.Request {
 }
 
 func ExecuteFindByCategorie() *interfaces.Request {
-	request := &interfaces.Request{}
+	m := &Movie{}
+	request := m.FindByCategoria()
 
 	var genres string
-	fmt.Println("Insert movie genres separeteds per , (ex: drama,suspense): ")
+	fmt.Println("Insert movie genres separeteds per comma (ex: drama,suspense): ")
 	fmt.Scan(&genres)
 
 	request.Filters.Values = strings.Split(genres, ",")

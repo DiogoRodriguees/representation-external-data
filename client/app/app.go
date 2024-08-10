@@ -32,8 +32,8 @@ func start(conn net.Conn) {
 		}
 
 		movieManager := movie.Init()
-		createRequest := movieManager.Option[option]
-		request := createRequest()
+		useCaseExecute := movieManager.Option[option]
+		request := useCaseExecute()
 
 		// Writing message
 		err := socket.WriteMessage(conn, request)
