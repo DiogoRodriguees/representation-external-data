@@ -1,2 +1,2 @@
 echo "[PYTHON] Executing server ..."
-python3 Main.py
+python3 ./src/Main.py
